@@ -25,4 +25,4 @@ jobs:
         with:
           context: "{{defaultContext}}"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/arqui-backend:latest , ${{ secrets.DOCKERHUB_USERNAME }}/arqui-backend:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/userservice:latest , ${{ secrets.DOCKERHUB_USERNAME }}/userservice:${{ github.sha }}
