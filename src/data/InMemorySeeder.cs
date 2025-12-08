@@ -44,11 +44,11 @@ namespace userService.src.data
                 });
             }
 
-            // Admin
+    
             var adminEmail = "admin@insightflow.com";
             if (!userService.EmailExists(adminEmail))
             {
-                userService.CreateUser(new CreateUserRequest
+                var admin = userService.CreateUser(new CreateUserRequest
                 {
                     Name = "Admin",
                     LastName = "User",
@@ -59,6 +59,9 @@ namespace userService.src.data
                     PhoneNumber = "000000000",
                     Password = "Admin1234!"
                 });
+                
+                
+                admin.Role = "Admin";
             }
 
             await Task.CompletedTask;

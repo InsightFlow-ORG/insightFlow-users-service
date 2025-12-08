@@ -53,5 +53,10 @@ namespace userService.src.models
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
         public List<AppUserMember> UserMembers { get; set; } = new List<AppUserMember>();
+
+        /// <summary>
+        /// The role assigned to the user.
+        /// </summary>
+        public string Role { get; set; } = "User";
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using userService.src.services;
 using userService.src.dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace userService.src.controllers
 {
@@ -38,6 +39,7 @@ namespace userService.src.controllers
         /// Get all users (non-sensitive information)
         /// </summary>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetAllUsers()
         {
             var users = _userService.GetAllUsers();
@@ -48,6 +50,7 @@ namespace userService.src.controllers
         /// Get user by ID
         /// </summary>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetUserById(Guid id)
         {
             try
@@ -65,6 +68,7 @@ namespace userService.src.controllers
         /// Update user information
         /// </summary>
         [HttpPatch("{id}")]
+        [Authorize]
         public IActionResult UpdateUser(Guid id, [FromBody] UpdateUserRequest request)
         {
             try
@@ -86,6 +90,7 @@ namespace userService.src.controllers
         /// Delete user (soft delete - mark as inactive)
         /// </summary>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteUser(Guid id)
         {
             try

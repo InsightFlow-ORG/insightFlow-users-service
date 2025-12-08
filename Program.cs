@@ -1,7 +1,12 @@
+using System;
+using System.Text;
+using dotenv.net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using userService.src.services;
-using userService.src.controllers;
-using Microsoft.OpenApi;
 
+DotEnv.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
@@ -10,15 +15,55 @@ builder.Services.AddControllers();
 // Agregar Swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "User Service API", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Title = "User Service API",
-        Version = "v1",
-        Description = "API para gestionar usuarios"
+        In = ParameterLocation.Header,
+        Description = "JWT Authorization header usando el esquema Bearer. Ejemplo: 'Bearer {token}'",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
     });
 });
 
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<ITokenService, TokenService>(); 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER"),
+        ValidateAudience = true,
+        ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_SIGNING_KEY")
+                ?? throw new ArgumentNullException("JWT_SIGNING_KEY"))),
+        ValidateLifetime = true
+    };
+});
 
 var app = builder.Build();
 
@@ -38,7 +83,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

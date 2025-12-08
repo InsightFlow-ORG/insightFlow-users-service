@@ -19,6 +19,8 @@ namespace userService.src.services
         bool UserExists(Guid id);
         bool EmailExists(string email);
         bool UserNameExists(string userName);
+        AppUser? GetUserByEmail(string email);
+        bool VerifyPassword(AppUser user, string password);
     }
 
     public class UserService : IUserService
@@ -181,6 +183,16 @@ namespace userService.src.services
                 var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
                 return Convert.ToBase64String(hashedBytes);
             }
+        }
+
+        public AppUser? GetUserByEmail(string email)
+        {
+            return _users.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public bool VerifyPassword(AppUser user, string password)
+        {
+            return user.PasswordHash == HashPassword(password);
         }
     }
 }
