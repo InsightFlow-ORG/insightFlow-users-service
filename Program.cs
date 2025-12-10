@@ -97,6 +97,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowNextJS"); 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
