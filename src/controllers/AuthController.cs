@@ -19,6 +19,12 @@ namespace userService.src.controllers
             _tokenService = tokenService;
         }
 
+        /// <summary>
+        /// Login a user
+        /// </summary>
+        /// <param name="loginDto"></param>
+        /// <summary>
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {

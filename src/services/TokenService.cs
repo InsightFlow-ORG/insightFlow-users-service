@@ -13,6 +13,10 @@ namespace userService.src.services
         string CreateToken(AppUser user, IEnumerable<string>? roles = null);
     }
 
+    /// <summary>
+    /// Token service for generating JWT tokens
+    /// </summary> <summary>
+
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _key;

@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "e11c7831-4edc-43d0-9962-16ae76d5b91e",
+		"name": "User-Service-insightFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38439958"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"raul\",\r\n  \"lastName\": \"lopez\",\r\n  \"email\": \"ra@ucn.cl\",\r\n  \"userName\": \"ralop\",\r\n  \"dateOfBirth\": \"2000-12-12\",\r\n  \"address\": \"ucn\",\r\n  \"phoneNumber\": \"569856985\",\r\n  \"password\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/Users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Users",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"raul\",\r\n  \"lastName\": \"lopez\",\r\n  \"email\": \"ra@ucn.cl\",\r\n  \"userName\": \"ralop\",\r\n  \"dateOfBirth\": \"2000-12-12\",\r\n  \"address\": \"ucn\",\r\n  \"phoneNumber\": \"569856985\",\r\n  \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5004/api/Users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Users",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:36:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:5004/api/Users/3243a3d8-c5a3-4f8e-a299-af70b4da7408"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario creado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"admin@insightflow.com\",\r\n  \"password\": \"Admin1234!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/Auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@insightflow.com\",\r\n  \"password\": \"Admin1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5004/api/Auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:37:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userName\": \"admin\",\n    \"email\": \"admin@insightflow.com\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGluc2lnaHRmbG93LmNvbSIsImdpdmVuX25hbWUiOiJhZG1pbiIsIm5hbWVpZCI6IjAyNDkzYWZmLWRlNWYtNGQxOS05NWZjLTAyNjU5OWVmYjM0YyIsImp0aSI6IjdhZjA2NmRmLTk2ZWItNGUyZS1hODRiLWU5YmFlZmJjNWI5ZCIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc2NTU4OTgyNCwiZXhwIjoxNzY1Njc2MjI0LCJpYXQiOjE3NjU1ODk4MjQsImlzcyI6Ikluc2lnaHRGbG93LWF1dGgtc2VydmljZSIsImF1ZCI6Ikluc2lnaHRGbG93LWFwaS11c2VycyJ9.DcnsszKGEB6sjd9v8bvEdg3SD_UOalcmsjX_8FkLlhI6S-dco2zP7ed-W3Nz9zGG6c0cccrfNZDEj_IdKzrpIg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get_all_user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGluc2lnaHRmbG93LmNvbSIsImdpdmVuX25hbWUiOiJhZG1pbiIsIm5hbWVpZCI6IjAyNDkzYWZmLWRlNWYtNGQxOS05NWZjLTAyNjU5OWVmYjM0YyIsImp0aSI6IjdhZjA2NmRmLTk2ZWItNGUyZS1hODRiLWU5YmFlZmJjNWI5ZCIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc2NTU4OTgyNCwiZXhwIjoxNzY1Njc2MjI0LCJpYXQiOjE3NjU1ODk4MjQsImlzcyI6Ikluc2lnaHRGbG93LWF1dGgtc2VydmljZSIsImF1ZCI6Ikluc2lnaHRGbG93LWFwaS11c2VycyJ9.DcnsszKGEB6sjd9v8bvEdg3SD_UOalcmsjX_8FkLlhI6S-dco2zP7ed-W3Nz9zGG6c0cccrfNZDEj_IdKzrpIg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_all_user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5004/api/Users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:37:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"42c4e974-8b5d-42e1-8e1d-493c6b952f80\",\n        \"name\": \"Francisco\",\n        \"lastName\": \"Matías\",\n        \"email\": \"francisco.matías@insightflow.com\",\n        \"userName\": \"francisco.matías\",\n        \"dateOfBirth\": \"2006-04-16\",\n        \"address\": \"Entrada Lilia Villalobos, 9 Esc. 422, Benalmádena, Marruecos\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"1e0a1adb-ee21-4e7a-bd4b-f93db7f7625d\",\n        \"name\": \"Pablo\",\n        \"lastName\": \"Alejandro\",\n        \"email\": \"pablo.alejandro@insightflow.com\",\n        \"userName\": \"pablo.alejandro\",\n        \"dateOfBirth\": \"2007-06-14\",\n        \"address\": \"Calleja Alicia Bonilla 53 Puerta 603, Bilbao, Jamaica\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"bb937607-1f69-4150-a487-d0e5b9b8b2d4\",\n        \"name\": \"Jesús\",\n        \"lastName\": \"Centeno\",\n        \"email\": \"jesús.centeno@insightflow.com\",\n        \"userName\": \"jesús.centeno\",\n        \"dateOfBirth\": \"1999-06-14\",\n        \"address\": \"Parcela Miguel Ángel, 2, Ciudad Real, Méjico\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"320c5e58-fab2-4f29-b9f5-694f0ac8fc6b\",\n        \"name\": \"Daniela\",\n        \"lastName\": \"Ordóñez\",\n        \"email\": \"daniela.ordóñez@insightflow.com\",\n        \"userName\": \"daniela.ordóñez\",\n        \"dateOfBirth\": \"2001-09-16\",\n        \"address\": \"Carretera Lorenzo 8 Puerta 482, Rivas-Vaciamadrid, Serbia\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"39178a87-3642-4692-9a36-9206aae92a9d\",\n        \"name\": \"Mónica\",\n        \"lastName\": \"Soliz\",\n        \"email\": \"mónica.soliz@insightflow.com\",\n        \"userName\": \"mónica.soliz\",\n        \"dateOfBirth\": \"1992-06-13\",\n        \"address\": \"Gran Subida Micaela s/n., Parla, Holanda\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"ff784bb3-a05e-44b6-a9bd-81774f0213ee\",\n        \"name\": \"Marisol\",\n        \"lastName\": \"Corona\",\n        \"email\": \"marisol.corona@insightflow.com\",\n        \"userName\": \"marisol.corona\",\n        \"dateOfBirth\": \"1995-01-11\",\n        \"address\": \"Escalinata Carmen Feliciano, 1 Puerta 138, Baracaldo, Mozambique\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"35dc04b1-f858-432b-9997-776a2d9dd2ab\",\n        \"name\": \"Yolanda\",\n        \"lastName\": \"Alonso\",\n        \"email\": \"yolanda.alonso@insightflow.com\",\n        \"userName\": \"yolanda.alonso\",\n        \"dateOfBirth\": \"1978-03-22\",\n        \"address\": \"Explanada Mateo Roldán 9, Valdemoro, Guam\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"5688d57b-0bfd-4fd7-a826-cc09768b4a77\",\n        \"name\": \"Hugo\",\n        \"lastName\": \"Marrero\",\n        \"email\": \"hugo.marrero@insightflow.com\",\n        \"userName\": \"hugo.marrero\",\n        \"dateOfBirth\": \"1999-03-09\",\n        \"address\": \"Parcela Dorotea 5, Rubí, Pakistan\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"eafc60c5-0e2a-4863-ac6a-d23a9e4c3cac\",\n        \"name\": \"María Luisa\",\n        \"lastName\": \"Gálvez\",\n        \"email\": \"maría luisa.gálvez@insightflow.com\",\n        \"userName\": \"maría luisa.gálvez\",\n        \"dateOfBirth\": \"1999-04-11\",\n        \"address\": \"Colonia Soledad 88 Esc. 813, Palma de Mallorca, Nepal\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"5c063f15-c8df-4cdc-bd5e-2d097c2cac72\",\n        \"name\": \"Rosa\",\n        \"lastName\": \"Saldivar\",\n        \"email\": \"rosa.saldivar@insightflow.com\",\n        \"userName\": \"rosa.saldivar\",\n        \"dateOfBirth\": \"1999-05-20\",\n        \"address\": \"Pasaje Elvira 95, Gecho, Tailandia\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"02493aff-de5f-4d19-95fc-026599efb34c\",\n        \"name\": \"Admin\",\n        \"lastName\": \"User\",\n        \"email\": \"admin@insightflow.com\",\n        \"userName\": \"admin\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"address\": \"Admin Address\",\n        \"isActive\": 1\n    },\n    {\n        \"id\": \"3243a3d8-c5a3-4f8e-a299-af70b4da7408\",\n        \"name\": \"raul\",\n        \"lastName\": \"lopez\",\n        \"email\": \"ra@ucn.cl\",\n        \"userName\": \"ralop\",\n        \"dateOfBirth\": \"2000-12-12\",\n        \"address\": \"ucn\",\n        \"isActive\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get_user_by_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGluc2lnaHRmbG93LmNvbSIsImdpdmVuX25hbWUiOiJhZG1pbiIsIm5hbWVpZCI6ImQxZmMzNGEwLTg5ZDUtNDlhYi1iYzU1LTYwMjZlM2JjZDBlZSIsImp0aSI6IjAwODhhMTcwLTA1M2QtNDRiMi1iZGQ1LWQ1ZjQyODM5OGE3YSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc2NTU4MDgzMCwiZXhwIjoxNzY1NjY3MjI5LCJpYXQiOjE3NjU1ODA4MzAsImlzcyI6Ikluc2lnaHRGbG93LWF1dGgtc2VydmljZSIsImF1ZCI6Ikluc2lnaHRGbG93LWFwaS11c2VycyJ9.U2wh1WyrOauZ0eq_nJqWzIXrpfgx2kalu9zX7ugAbQB0iEvxIgYSCjmhAOlpLXd8HU7wIkC9-V3_uDlifz8kWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Users",
+						"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_user_by_id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Users",
+								"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:37:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"5c063f15-c8df-4cdc-bd5e-2d097c2cac72\",\n    \"name\": \"Rosa\",\n    \"lastName\": \"Saldivar\",\n    \"email\": \"rosa.saldivar@insightflow.com\",\n    \"userName\": \"rosa.saldivar\",\n    \"dateOfBirth\": \"1999-05-20\",\n    \"address\": \"Pasaje Elvira 95, Gecho, Tailandia\",\n    \"isActive\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "edit_user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGluc2lnaHRmbG93LmNvbSIsImdpdmVuX25hbWUiOiJhZG1pbiIsIm5hbWVpZCI6ImQxZmMzNGEwLTg5ZDUtNDlhYi1iYzU1LTYwMjZlM2JjZDBlZSIsImp0aSI6IjAwODhhMTcwLTA1M2QtNDRiMi1iZGQ1LWQ1ZjQyODM5OGE3YSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc2NTU4MDgzMCwiZXhwIjoxNzY1NjY3MjI5LCJpYXQiOjE3NjU1ODA4MzAsImlzcyI6Ikluc2lnaHRGbG93LWF1dGgtc2VydmljZSIsImF1ZCI6Ikluc2lnaHRGbG93LWFwaS11c2VycyJ9.U2wh1WyrOauZ0eq_nJqWzIXrpfgx2kalu9zX7ugAbQB0iEvxIgYSCjmhAOlpLXd8HU7wIkC9-V3_uDlifz8kWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"userName\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Users",
+						"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "edit_user",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"userName\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Users",
+								"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:38:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario actualizado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete_user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGluc2lnaHRmbG93LmNvbSIsImdpdmVuX25hbWUiOiJhZG1pbiIsIm5hbWVpZCI6ImQxZmMzNGEwLTg5ZDUtNDlhYi1iYzU1LTYwMjZlM2JjZDBlZSIsImp0aSI6IjAwODhhMTcwLTA1M2QtNDRiMi1iZGQ1LWQ1ZjQyODM5OGE3YSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc2NTU4MDgzMCwiZXhwIjoxNzY1NjY3MjI5LCJpYXQiOjE3NjU1ODA4MzAsImlzcyI6Ikluc2lnaHRGbG93LWF1dGgtc2VydmljZSIsImF1ZCI6Ikluc2lnaHRGbG93LWFwaS11c2VycyJ9.U2wh1WyrOauZ0eq_nJqWzIXrpfgx2kalu9zX7ugAbQB0iEvxIgYSCjmhAOlpLXd8HU7wIkC9-V3_uDlifz8kWw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5004",
+					"path": [
+						"api",
+						"Users",
+						"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete_user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5004/api/Users/5c063f15-c8df-4cdc-bd5e-2d097c2cac72",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5004",
+							"path": [
+								"api",
+								"Users",
+								"5c063f15-c8df-4cdc-bd5e-2d097c2cac72"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 13 Dec 2025 01:38:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}
